@@ -52,7 +52,7 @@ if table == "COACH" and option == "1":
     conn = sqlite3.connect('football.db')
     c = conn.cursor()
     c.execute("SELECT * FROM COACH")
-    print(c.fetchall())
+    print(tabulate(c.fetchall()))
     conn.close()
 
 #if user picks coach table and add - the following code will run asking for user input to add a new coach and the following data coach_id, name, address_street, address_city, address_postcode, yrs_experience.
@@ -111,7 +111,7 @@ if table == "PLAYER" and option == "1":
     conn = sqlite3.connect('football.db')
     c = conn.cursor()
     c.execute("SELECT * FROM PLAYER")
-    print(c.fetchall())
+    print(tabulate(c.fetchall()))
     conn.close()
 
 #if user picks player table and add - the following code will run asking for user input to add a new player and the following data player_id, number, name, shots, hits, steals, rebounds, blocks, coach_id.
@@ -174,7 +174,7 @@ if table == "GAME" and option == "1":
     conn = sqlite3.connect('football.db')
     c = conn.cursor()
     c.execute("SELECT * FROM GAME")
-    print(c.fetchall())
+    print(tabulate(c.fetchall()))
     conn.close()
 
 #if user picks game table and add - the following code will run asking for user input to add a new game and the following data game_id, home, away, date, time, location_street, location_city, location_postcode, season_id.
@@ -237,7 +237,7 @@ if table == "SEASON" and option == "1":
     conn = sqlite3.connect('football.db')
     c = conn.cursor()
     c.execute("SELECT * FROM SEASON")
-    print(c.fetchall())
+    print(tabulate(c.fetchall()))
     conn.close()
 
 #if user picks season table and add - the following code will run asking for user input to add a new season and the following data season_id, begin, end.
@@ -282,10 +282,6 @@ if table == "SEASON" and option == "4":
     c.execute("UPDATE SEASON SET begin = ?, end = ? WHERE season_id = ?", (begin, end, season_id))
     conn.commit()
     conn.close()
-
-#Programme will now exit
-print("Programme will now exit")
-exit()
 
 
 
